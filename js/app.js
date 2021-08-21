@@ -3,7 +3,9 @@ const extraStorageCost = document.getElementById('extra-storage-cost');
 const deliveryCharge = document.getElementById('delivery-charge');
 const getBestPrice = document.getElementById('best-price');
 const totalPrice = document.getElementById('total-price');
+const totalBig = document.getElementById('total-big');
 
+//function for calculating total price 
 function calculateTotal(){
     const bestPrice = parseInt(getBestPrice.innerText);
     const costForExtraMemory = parseInt(extraMemoryCost.innerText);
@@ -12,6 +14,10 @@ function calculateTotal(){
 
     const grandTotal = bestPrice + costForExtraMemory + costForExtraStorage + deliveryCost;
     totalPrice.innerText = grandTotal;
+    totalBig.innerText = grandTotal;
+}
+function calculateTotalBig(){
+    totalBig = parseInt(totalPrice.innerText);
 }
 
 //handling memory buttons
@@ -47,4 +53,9 @@ const chargedDelivery = document.getElementById('charged-delivery').addEventList
     deliveryCharge.innerText = "20";
     calculateTotal();
 })
+
+//promo code
+const promoCode = document.getElementById('promo-code')
+
+
  

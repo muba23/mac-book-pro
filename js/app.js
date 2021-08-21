@@ -3,7 +3,7 @@ const extraStorageCost = document.getElementById('extra-storage-cost');
 const deliveryCharge = document.getElementById('delivery-charge');
 const getBestPrice = document.getElementById('best-price');
 const totalPrice = document.getElementById('total-price');
-const totalBig = document.getElementById('total-big');
+let totalBig = document.getElementById('total-big');
 
 //function for calculating total price 
 function calculateTotal(){
@@ -16,6 +16,8 @@ function calculateTotal(){
     totalPrice.innerText = grandTotal;
     totalBig.innerText = grandTotal;
 }
+
+//function for the bottom total
 function calculateTotalBig(){
     totalBig = parseInt(totalPrice.innerText);
 }
@@ -54,8 +56,20 @@ const chargedDelivery = document.getElementById('charged-delivery').addEventList
     calculateTotal();
 })
 
-//promo code
-const promoCode = document.getElementById('promo-code')
+// calculation for promo code
+const applyButton = document.getElementById('apply-promo-code').addEventListener('click', function(){
+    const promoCodeInput = document.getElementById('promo-code-input');
+
+    if(promoCodeInput.value == 'stevekaku'){
+        totalBig.innerText = totalBig.innerText - (totalBig.innerText*(20/100));
+    }
+    else{
+        promoCodeInput.value ='';
+    }
+    promoCodeInput.value ='';
+})
+
+
 
 
  
